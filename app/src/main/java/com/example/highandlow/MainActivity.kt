@@ -88,16 +88,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun highAndLow(answer:Char){
+        //CPU側のカードを表示する
         showDroidCard()
         answered = true
+        //CPU側のカード-自分のカード
         val balance = droidCard - yourCard
 
         if(balance == 0){
             //do nothing
-        }else if(balance > 0 && answer == 'h'){
+        }else if(balance < 0 && answer == 'h'){
             hitCount++
             binding.hitText.text = getString(R.string.hit_text) + hitCount
-        }else if(balance < 0 && answer == 'l'){
+        }else if(balance > 0 && answer == 'l'){
             hitCount++
             binding.hitText.text = getString(R.string.hit_text) + hitCount
         }else{
